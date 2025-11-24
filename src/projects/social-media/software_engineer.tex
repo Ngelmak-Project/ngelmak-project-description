@@ -1,0 +1,132 @@
+% Dans cette partie nous abordons certains aspects techniques de notre porjet. Ce projet prendra forme avec la création d'une application avec une interface web, accessible à l'aide d'un navigateur comme chrome, et mobile, accessible depuis son smartphone ou tablette. Nous détaillons, quelques étapes qui sont nécessaires pour la mise en place de cette application. 
+
+\section{Cahier Des Charges}
+
+
+Le cahier des charges fournit une revue détaillée des différentes fonctionnalités de l'application. Il définit les acteurs internes et externes impliqués dans l'application. Le cahier des charges permet de proposer un modèle global de l'application et le choix des technologies. Il est primordial dans la réalisation d'un projet, car il constitue le point d'entrée pour l'étude et la mise en oeuvre des différentes étapes.
+
+Dans un autre document, ou une autre version de ce document, nous proposerons un cahier des charges assez complet pour notre projet. Nous attendons la participation de tous pour nous aider à élaborer une version plus complète avant de commencer à travailler sur le projet.
+
+\subsection{\textsc{Les Acteurs}}
+
+Notre application est organisée avec des rôles (ou droits) et des privilèges qui sont attribués à différents utilisateurs pour assurer le fonctionnement harmonieux du système. Examinons quelques-uns des rôles et privilèges qui peuvent exister.
+
+\paragraph{\texttt{Acteur}}
+Le privilège \texttt{Acteur} est le privilège de base pour tous les utilisateurs. Il accorde uniquement le droit de publier des articles et de répondre par des commentaires sur l'application. Ce privilège est automatiquement attribué à tous les utilisateurs de l'application. 
+
+\paragraph{\texttt{Modérateur} et \texttt{Assistant}}
+Un \texttt{Modérateur} et un \texttt{Assistant} sont des bénévoles dont le rôle est de veiller au respect des politiques d'utilisation et d'aider à l'utilisation de l'application, respectivement. Un ensemble de modérateurs sera sélectionné de manière aléatoire pour valider la publication d'un utilisateur une fois qu'elle a été publiée.\newline
+D'autre part, un assistant bénévole aide à la prise en main de l'outil. Toute personne disposant de ce privilège devient un acteur qui peut être consulté par un utilisateur pour l'aider à créer une publication, ou sur tout sujet lié aux fonctionnalités disponibles dans notre plateforme. Une publication créée par un utilisateur disposant du privilège \texttt{Assistant} est automatiquement validée sans passer par un modérateur.
+
+\paragraph{\texttt{Journaliste}}
+Comme son nom l'indique, il s'agit d'un acteur assermenté dans le domaine du journalisme. Ce privilège donne automatiquement l'équivalent de \texttt{Assistant} à son titulaire. En plus de ce pouvoir, il lui donne la possibilité de consulter les coordonnées de certains auteurs de publications, lorsque ces derniers le permettent. En clair, il permet aux journalistes de contacter les auteurs de certaines publications à des fins d'interview, d'enquête ou de toute autre fin liée à leur fonction.
+
+\paragraph{\texttt{Autorité}}
+Ce privilège hérite du privilège \texttt{Journaliste}, donnant un niveau de visibilité plus large aux contacts des auteurs de posts qui souhaitent que leurs informations leur soient accessibles. Ce privilège est réservé exclusivement aux membres de l'appareil judiciaire (juges, avocats, huissiers de justice, etc.) et aux forces de l'ordre (policiers, gendarmes, etc.).
+
+\paragraph{\texttt{Admin}}
+Le rôle d'administrateur donne un accès plus ou moins global à l'application. Le droit \texttt{Admin} confère tous les rôles, mais pas nécessairement tous les privilèges. En effet, ce rôle n'hérite pas nécessairement de tous les privilèges énumérés ci-dessus. Un administrateur peut être \texttt{Journaliste} et/ou \texttt{Autorité} s'il peut les avoir dans le cas où il n'est pas un administrateur. Il peut y avoir plusieurs administrateurs dans le système. Ils sont chargés de configurer le site et de créer et/ou d'attribuer certains privilèges et rôles à d'autres utilisateurs. Les actions des administrateurs sont visibles par tous les autres administrateurs, pour une transparence totale. \textbf{Et seul l'administrateur d'origine est en mesure d'attribuer et de retirer ce rôle à d'autres personnes.}. D'autres privilèges et rôles peuvent également être ajoutés si nécessaire.
+
+
+\subsection{\textsc{Les Fonctionnalités}}
+
+Nous aimerions vous rappeler que notre objectif est d'offrir un outil de soutien à tous les opprimés et aux personnes désireuses de partager de bonnes idées, un outil utile pour faire entendre leur voix sans restriction, dans un esprit de respect et de responsabilité. A travers une brève présentation, nous proposons quelques unes des fonctionnalités qui seront disponibles dans l'application.
+
+\paragraph{Création D'Un Compte Et Certification}
+
+Tout le monde peut créer un compte. Toutefois, pour éviter d'être submergé par les faux comptes et limiter la désinformation, nous proposerons à tous ceux qui le souhaitent d'avoir un compte certifié, de sorte qu'une personne ne puisse avoir qu'un seul compte certifié associé.\newline
+Comment vérifier et certifier un compte ? Par le biais de votre carte d'identité pour les personnes physiques, ou de tout document officiel pour les personnes morales. Toutefois, seul le numéro de la carte sera pris en compte après vérification et il est crypté afin d'être inaccessible au public de quelque manière que ce soit. Voir plus de détails sur les informations ou données personnelles de nos utilisateurs dans la section réservée à cet effet.
+
+\textit{Un utilisateur non certifié peut cependant faire des publications et donner des avis sur d'autres publications. Cependant, ses avis et publications ne compteront pas ou très peu dans les statistiques, et l'impact de ses publications peut être faible.}
+
+\paragraph{Publication Engagée (\texttt{\texttt{Xabaar}})}
+
+Le coeur de l'application est basé sur le concept de \texttt{Xabaar}, qui signifie information dans notre belle langue, le wolof. Une publication peut être un texte, un enregistrement vocal ou vidéo, un live, ou toute combinaison de ces éléments. Une fois qu'elle a été soumise, elle sera vérifiée par un vote. Idéalement, cinq modérateurs seront choisis au hasard pour la vérification et la validation. La publication est validée lorsqu'elle obtient la majorité des votes, sinon elle est rejetée. Si elle est rejetée, elle peut être soumise à nouveau, éventuellement après modification, et faire l'objet d'un nouveau vote. Si le résultat est le même, la publication peut faire l'objet d'un arbitrage selon un processus qui peut nécessiter une tierce partie indépendante.
+
+Chaque utilisateur peut créer une publication pour partager ses idées, ses réflexions ou faire des dénonciations. Contrairement aux simples partages de faits que l'on trouve sur des plateformes comme WhatsApp, chaque publication doit être accompagnée d'une réflexion plus ou moins approfondie. Les utilisateurs sont encouragés à analyser, critiquer et proposer des solutions aux problèmes qu'ils abordent. Une publication peut être, entre autres:
+\begin{enumerate}
+  \item[-] Une \textbf{dénonciation} qui permet aux utilisateurs de dénoncer l'injustice, l'abus ou toute forme d'oppression dont ils ont fait l'objet ou un proche. Toutes les dénonciations doivent être justifiées et contextualisées afin de sensibiliser la communauté et d'encourager l'action.
+  \item[-] Une \textbf{lettre ouverte} peut être écrite et adressée à des individus, des organisations ou des autorités dans le but de lancer des appels à l'action ou des demandes de changement qui sont partagés publiquement afin de mobiliser un soutien plus large.
+  \item[-] Un \textbf{observateur d'événements}, qui fait référence à une histoire ou à un fait qui s'est déjà produit ou qui est en train de se produire sous la forme d'une série d'événements. Il permet de suivre facilement la succession d'événements sur un même thème.
+  \item[-] Il est également possible de donner son \textbf{opinion} sur une variété de sujets, mais chaque opinion doit être argumentée et étayée par des faits (par exemple des documents justificatifs) ou une expérience personnelle dans le but de stimuler un débat réfléchi et constructif. 
+  \item[-] Etc.
+\end{enumerate}
+
+% Normalement, une publication doit être associée à un compte visible par les utilisateurs. Cependant, il est possible pour un utilisateur de couper symboliquement tout lien qui pourrait mener à sa page, de sorte que sa publication soit très peu traçable du point de vue des utilisateurs externes.
+
+Une fois qu'une publication a été validée, elle apparaît sur les différentes pages auxquelles elle correspond. Elle peut alors être votée (recommandée), commentée et/ou signalée par d'autres utilisateurs. Une fois la publication validée, sa visibilité est publique et accessible à tous, sauf décision contraire du propriétaire.
+
+Un ensemble de pièces jointes peut également accompagner et soutenir l'objet de la publication. Ils peuvent avoir différents niveaux de visibilité et restent sous la responsabilité de l'utilisateur qui les a publiés. Si la visibilité n'est pas définie pour chaque pièce jointe, celles-ci hériteront de la visibilité de la publication à laquelle elles sont attachées.
+
+\paragraph{Rejet d'une publication}
+
+Toute publication est soumise à la validation par un groupe de volontaires impartiaux sélectionnés de manière aléatoire. Elle sera acceptée et rendue visible selon le choix de l'auteur si la majorité des volontaires s'accordent sur le fait que son contenu respecte notre politique. Si, en revanche, elle est rejetée par un ou plusieurs modérateurs, l'auteur sera notifié du rejet et la publication sera partiellement visible et consultable par les autres utilisateurs dans une section réservée à cet effet.
+
+En toute bonne foi, nous souhaitons que les mesures restrictives prises à l'égard de chaque publication restent transparentes et visibles pour les autres utilisateurs. Nous ne voulons pas que certains utilisateurs soient impunément limités dans leur exploitation de nos services, dès lors qu'ils respectent les règles qui définissent notre politique d'utilisation ou les règles en vigueur dans leur pays.
+
+L'auteur peut toutefois contester cette décision et demander une réévaluation de la publication. Dans ce cas, un autre groupe de modérateurs bénévoles sera choisi pour vérifier la publication. Si la publication est rejetée, l'utilisateur doit avoir la possibilité d'engager une procédure judiciaire par voie d'arbitrage pour faire valoir ses droits, afin d'éviter de prétendre que nous détenons la vérité et la force absolues en ce qui concerne notre application.
+
+\paragraph{Dispensation Des Publications Et Statistiques}
+
+Il s'agit d'une fonctionnalité très importante de la plateforme, conçue pour mettre en valeur les publications des utilisateurs. Contrairement à de nombreuses plateformes d'information, les utilisateurs sont ici informés de ce qui se passe autour d'eux avant tout autre lieu plus éloigné. Ainsi, par défaut, les personnes qui ont choisi de partager leur position ou de sélectionner un lieu spécifique auquel elles souhaitent être identifiées verront les publications autour d'elles avant celles des lieux plus éloignés. Nous procédons ainsi parce que, de nos jours, les gens sont plus conscients de ce qui se passe à des kilomètres de chez eux que de ce qui se passe autour d'eux. Toutefois, les utilisateurs peuvent toujours définir leurs préférences.
+
+Pour éviter qu'une publication ne soit confrontée à un lac de visibilité, nous utiliserons un algorithme \textit{semi-aléatoire} qui pourra parcourir les utilisations et leurs publications de manière aléatoire. En effet, l'effet aléatoire permet à toute publication d'avoir une certaine chance d'apparaître. Nous entendons par semi-aléatoire le fait que de nombreux autres critères seront également pris en compte lors du processus de sélection des articles à afficher. Ainsi, l'affichage partira d'un point de base qui peut être une région ou une ville configurée par l'utilisateur et se déplacera aléatoirement vers les voisins jusqu'aux frontières (limites) et ramassera des publications de différents types.
+
+Des statistiques seront proposées pour que les utilisateurs aient des informations sur les sujets les plus abordés, les personnes qui contribuent le plus ou les entreprises qui ont été les plus critiquées ou recommandées. Ces statistiques peuvent être utiles pour montrer le degré d'importance des sujets traités par les utilisateurs.
+
+Pour la transparence, après un refus, un utilisateur peut choisir de montrer publiquement les motivations qui ont conduit au refus de sa publication. La raison pour laquelle nous avons opté pour cette solution, c'est d'abord qu'elle nous empêche d'abuser de la restriction en affichant une transparence totale. Ensuite, nous laissons à l'utilisateur concerné le choix de rendre publique la désapprobation concernant sa publication, que nous considérons comme appartenant à l'utilisateur.
+
+\paragraph{Quoi d'autre ?}
+
+Il n'est pas possible d'énumérer toutes les fonctionnalités de base qu'offrira cette application. Les fonctionnalités seront ajoutées au fur et à mesure de l'avancement du développement. Nous invitons également toutes les parties prenantes à faire des suggestions pour nous aider à améliorer les services que nous offrons et à fournir une expérience utilisateur toujours meilleure.
+
+On envisage également d'autres ramifications très importantes en guise de perspectives. En effet, nous espérons que ce projet donnera lieu à d'autres utilités qui peuvent être complètement différentes de l'idée de base du partage d'idées et d'événements réels. Un très bon exemple, peut être un outil de partage de trajets (covoiturage) entre utilisateurs sans forme de tarification, tout à fait gratuit. Tenez-nous au courant et n'oubliez pas de nous soutenir (voir chapitre \ref{chap:finance}).
+
+% 
+% 
+% 
+% 
+% A CHAPTER
+% 
+\section{Modelisation}
+
+
+
+La modélisation consiste en la définition sous forme de schéma des différentes composentes de notre application. Elle répond également au choix des différentes technologies qui seront utilisées pour la réalisation de celle-ci. 
+
+\subsection{\textsc{Choix Technologiques}}
+
+Il existe un certain nombre de technologies disponibles pour construire des applications informatiques. Ces technologies sont les divers langages de programmation natifs ou dérivés de l'information, connus sous le nom de "frameworks". Les frameworks permettent un développement plus rapide et plus efficace. Nous les utiliserons plutôt que les versions natives, ce qui nous permet d'éviter de partir de zéro. Nous aurons donc trois choix principaux à faire : la base de données, le backend et le frontend.
+
+\textbf{La base de données}: comme son nom l'indique, elle est chargée de gérer les données des utilisateurs (informations de compte, publications, etc.), les paramètres de configuration de l'application, etc. Dans un premier temps, nous vous proposons d'utiliser SQL avec le système de gestion de base de données Postgres SQL. Postgres est un système de gestion de base de données (SGBD) très sophistiqué, puissant et libre. On peut se demander pourquoi une base de données SQL alors que l'on pourrait tout aussi bien opter pour NoSQL ("not only sql", pas "no sql") puisque nous sommes susceptibles de manipuler une énorme quantité de données. Bien qu'il n'y ait pas beaucoup de contraintes qui nous auraient conduit à utiliser SQL, qui est spécialisé dans l'intégrité et la cohérence des données, notre plateforme n'est pas initialement appelée à gérer une quantité colossale de données. Et Postgres est suffisamment efficace et puissant pour gérer de grandes bases de données. Cependant, une base de données NoSQL peut très bien faire l'affaire, car nous n'avons pas nécessairement besoin de gérer des tables avec un haut degré de cohérence des données.
+
+\textbf{Le backend}: comprend toutes les technologies qui interagissent avec la base de données et mettent en oeuvre les différentes fonctionnalités et la sécurité de l'application. Elle n'est généralement pas directement accessible aux utilisateurs pour des raisons de sécurité et de performance. Pour ce faire, nous proposons le framework Java, Spring-Boot.~\footnote{Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run". Voir plus à \href{https://spring.io/projects/spring-boot}{https://spring.io/projects/spring-boot}}. Spring Boot est un framework très puissant qui permet de développer rapidement des microservices et de les exposer sous forme d'API (Application Programming Interfaces), avec la sécurité qui va avec, en un rien de temps. De plus, il existe une grande communauté derrière ce framework, ce qui en fait un choix idéal. Nous sommes toutefois ouverts à d'autres propositions.
+
+\textbf{Le frontend}: c'est la partie directement en contact avec l'utilisateur. C'est l'interface à travers laquelle l'utilisateur communique avec les différents services qui sont proposés et exposés par le backend via des APIs.\newline
+Nous proposons Angular pour déveloper le frontend.~\footnote{Angular is an application-design framework and development platform for creating efficient and sophisticated single-page apps. Plus sur~\href{https://angular.io/docs}{https://angular.io/docs}}. Il s'agit d'un framework très propre, axé sur la programmation par composants. Il est cependant plus lourd que ReactJS ou VueJS. Mais son organisation est claire et offre une approche très pragmatique en matière de développement. Il dispose également d'une communauté très forte pour un soutien et une aide supplémentaires. Nous sommes également ouverts à d'autres propositions de membres désireux de nous aider à mettre en oeuvre le code.
+
+\subsection{\textsc{La Motivation Derrière Une Architecture Microservice}}
+
+Une architecture microservice, par opposition à une architecture monolithique, divise une application en plusieurs services indépendants, chacun étant responsable d'une petite partie spécifique du projet. Ces microservices communiquent via des protocoles tel que des API REST.
+
+Toutefois, une architecture de microservices est plus complexe, mais offre une décomposition plus fine, où chaque microservice est isolé, ce qui offre une plus grande flexibilité pour la maintenance et le choix des langages de programmation (chaque service peut faire l'object d'un choix de langage de programmation différent). Elle est également plus résiliente, car l'arrêt pour cause de maintenance ou la défaillance d'un microservice n'empêche pas nécessairement le bon foncitonnement des autres microservices.
+
+Des exemples de microservices, dans notre cas, pourraient être le service d'authentification, le service de gestion des publications, le service de gestion financière (dons, comptabilité, archivage comptable pour la traçabilité et la transparence, etc.), et un service pour chaque ramification du projet initial comme un service de covoiturage.
+
+Compte tenu de ces nombreux avantages, nous allons partir sur une architecture de microservice. Puisque, cela nous permettra d'ajouter ultérieurement d'autres fonctionnalités, qui pourront facilement fonctionner avec le système existant sans nécessiter de changements majeurs dans la plupart des cas. Nous commencerons par un service offrant les fonctionnalités de base du projet. Ensuite, nous travaillerons sur d'autres services gratuits qui enrichiront la structure de base existante. Nous parlerons de ce qui pourrait être fait dans la section développant les perspectives du projet.
+
+\subsection{\textsc{Une Version Mobile Pour Tous Les Système Android et Apple}}
+
+Nous prévoyons également une version mobile pour les utilisateurs de smartphones. En effet, la grande majorité des individus en général, et des Sénégalais en particulier, préfère se connecter via leur smartphone. En Décembre 2020, 76\% de la population naviguait sur internet via un smartphone contre 23\% via un ordinateur portable ou de bureau et 1,1\% via tablette~\footnote{Le Numérique au Sénégal, les chiffres en 2021. Voir plus \href{https://noisydigital.com/les-chiffres-du-numerique-en-2021-au-senegal/}{Le Numérique au Sénégal, les chiffres en 2021}}.
+
+Pour ce qui est de la technologie à utiliser, je n'ai personnellement aucune suggestion. Nous pourrons partir sur du Flutter~\footnote{\href{https://docs.flutter.dev/}{https://docs.flutter.dev/}} qui est une excellente technologie multiplateforme. Nous espérons une forte participation de la part d'expert dans le développement mobile pour proposer une application de qualité avec une merveilleuse expérience utilisateur.
+
+L'application mobile développée accédera directement au API exposées par le backend, tout comme le fait le frontend, depuis les smartphones des différents utilisateurs. Cela démontre l'importance primordiale du backend que nous avons expliqué plus haut.
+
+\subsection{\textsc{Choix De Déploiement}}
+
+Nous pouvons déployer l'application sur des serveurs nationaux ou internationaux. Ce choix n'est pas fait pour échapper au contrôle des autorités, mais pour offrir à l'application un cadre de développement approprié qui respecte les lois en vigueur, l'éthique et les valeurs sénégalaises, tout en pouvant éviter une éventuelle censure arbitraire de la part des autorités actuelles ou futures.
+
+Ce projet est totalement bénévole et est proposé pour \textbf{aider et soutenir les populations du Sénégal} et éventuellement de l'Afrique. Donc, en principe, il n'est pas là pour contrecarrer les actions et les plans d'un gouvernement. Au contraire, il aidera ce dernier à mieux comprendre les préoccupations des populations qu'il gouverne. Cependant, nous devons également prendre toutes les mesures nécessaires pour prévenir toute action arbitraire ou abusive de la part d'un pouvoir étatique à l'égard de ce projet à l'avenir. Nous promettons de veiller au respect des lois et règlements qui régissent notre pays.
+
+Nous avons pour but de servir le peuple ainsi nous ne devons pas permettre que des moyens peu sollicitables soient véhiculer à travers notre projet pour nuir le bon foncitonnement de l'état ou pour causer un quelconque trouble à l'ordre publique. Nous ne permettrons pas non plus, si toutefois ce dernier ne fait pas correctement son travail, qu'il puisse être capable de nous empêcher d'être le levier par lequel le peuple devrait le combattre. Nous optons donc pour un déploiement local ou décentralisé dans d'autres pays. Cela garantirait la disponibilité de notre application en toutes circonstances.

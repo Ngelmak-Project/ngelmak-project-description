@@ -1,0 +1,25 @@
+# LaTeX files
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+
+# Output directories
+_out/
+build/
+temp/
+
+# Backup files
+*~
+
+# Other files
+*.idx
+*.ilg
+*.ind
+*.dvi

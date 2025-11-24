@@ -1,0 +1,181 @@
+\documentclass[twocolumn,12pt]{article}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{background}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{titling}
+\usepackage{lipsum}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{xspace}
+% Optional: Use a special font for the title
+\usepackage{tgchorus} % Elegant script-style font
+\usepackage{cmbright}
+\usepackage{hyperref}
+\usepackage{xparse}
+\usepackage{calc}
+
+% Column spacing
+\setlength{\columnsep}{20pt}
+
+% Define dark blue color
+\definecolor{darkblue}{RGB}{0, 51, 102}
+
+% Title styling
+% \pretitle{\begin{center}\fontsize{36pt}{42pt}\bfseries\color{darkblue}}
+% \posttitle{\end{center}}
+\title{A Monumental Title in Deep Blue}
+
+
+% Section styling
+\titleformat{\section}
+  {\bfseries\Large\color{darkblue}}
+  {\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{36pt}{24pt}
+
+\titleformat{\subsection}
+  {\bfseries\large\color{darkblue}}
+  {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{24pt}{18pt}
+
+% Line spacing
+\renewcommand{\baselinestretch}{1.5}
+
+% Title page background
+% \backgroundsetup{
+%   scale=1,
+%   angle=0,
+%   opacity=0.5,
+%   contents={\includegraphics[width=\paperwidth,height=\paperheight]{background4title.jpg}}
+% }
+
+
+\newcommand{\setTitleBackground}[2]{%
+  \backgroundsetup{
+    scale=1,
+    angle=0,
+    opacity=#2,
+    contents={\includegraphics[width=\paperwidth,height=\paperheight]{#1}}
+  }%
+}
+
+\newcommand{\ngelmak}{\textit{Ngelmak}\xspace}
+
+\NewDocumentCommand{\NgelmakChapterSlide}{m o o}{%
+  \IfNoValueTF{#2}{\def\second{images/steve-johnson-HvPuP7osOL4-unsplash.jpg}}{\def\second{#2}}%
+  \IfNoValueTF{#3}{\def\third{images/milad-fakurian-6a1VMbgy_1E-unsplash.jpg}}{\def\third{#3}}%
+
+  \clearpage
+  \setTitleBackground{\second}{1.0}
+
+  \vspace*{\fill}
+  \noindent
+  \begin{center}
+    \begin{tikzpicture}
+      \node[
+        draw=none,
+        fill=white,
+        fill opacity=0.5,
+        text opacity=1,
+        anchor=west,
+        inner sep=2cm,
+        minimum width=\textwidth
+      ] at (0,0) {
+        \begin{minipage}{\textwidth}
+          \raggedright
+          \setstretch{1.4}
+          {\fontsize{28}{34}\selectfont\bfseries\color{black} #1}
+        \end{minipage}
+      };
+    \end{tikzpicture}
+  \end{center}
+  \vspace*{\fill}
+
+  \clearpage
+  \setTitleBackground{\third}{0.1}
+}
+
+% Example usage
+
+% \NgelmakChapterSlide{Welcome to the Workshop}
+
+% \NgelmakChapterSlide{Deep Dive into AI}[backgroundtitle]
+
+% \NgelmakChapterSlide{Closing Remarks}[backgroundtitle][backgroundcontent]
+
+
+
+
+
+\begin{document}
+
+
+\setTitleBackground{images/dima-solomin-SHBGr41ffhE-unsplash.jpg}{1.0}
+\clearpage
+
+\vspace*{3cm}
+
+% Title — centered across full width
+\noindent
+\begin{minipage}{\textwidth}
+	\centering
+	{\fontsize{48pt}{64pt}\selectfont\bfseries\color{white}
+		Projet Ngelmak}
+\end{minipage}
+
+\vspace{0.5cm}
+
+% Subtitle — new line, aligned right
+\noindent
+\begin{minipage}{\textwidth}
+	\raggedleft
+	{\normalsize\color{white}\MakeUppercase{Subtitle goes here}}
+\end{minipage}
+
+\vspace*{\fill}
+
+\noindent
+\makebox[\textwidth]{%
+	\begin{minipage}[b]{0.6\textwidth}
+		\raggedright
+		{\large\color{white} Youssouph Faye \quad | \quad Pape M. Thiaw} \\
+		{\normalsize\color{white} October 16, 2025}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.4\textwidth}
+		\raggedleft
+		\includegraphics[width=2.5cm]{images/logo.pdf}
+	\end{minipage}%
+}
+
+
+% \clearpage
+
+
+
+% A NEW CHAPTER
+\include{chapters/social_media}
+
+
+% A NEW CHAPTER
+\NgelmakChapterSlide{Chapter One: Introduction to the Monumental Framework That Powers Everything}
+
+\section{Introduction}
+\lipsum[1-2]
+\subsection{Background}
+\lipsum[3]
+\lipsum[3]
+
+
+% A NEW CHAPTER
+\NgelmakChapterSlide{Chapter One: Introduction to the Monumental Framework That Powers Everything}
+
+\section{Main Concepts}
+\lipsum[4-10]
+\subsection{Key Ideas}
+\lipsum[8]
+\section{Conclusion}
+\lipsum[7]
+
+\end{document}
