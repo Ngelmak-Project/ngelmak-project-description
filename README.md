@@ -32,7 +32,7 @@ The Ngelmak ecosystem consists of:
 
 The full documentation is available in PDF format:
 
-👉 [View the Ngelmak Project Document](./main.pdf)
+👉 [View the Ngelmak Project Document](./src/main.pdf)
 
 *(Compiled from LaTeX sources in this repository)*
 
@@ -44,8 +44,9 @@ The full documentation is available in PDF format:
 ngelmak-description/
  ├── src/                # LaTeX sources
  │    ├── chapters/      # Individual sections
- │    ├── main.pdf/      # Compiled document (read this!)
- │    └── main.tex       # Main entrypoint
+ │    ├── images/        # Source images
+ │    ├── NgelmakProjectDesc.pdf/      # Compiled document (read this!)
+ │    └── NgelmakProjectDesc.tex       # NgelmakProjectDesc entrypoint
  └── README.md           # This file
 ```
 

@@ -1,0 +1,233 @@
+\documentclass[twocolumn]{book}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{background}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{titling}
+\usepackage{tocloft} % optional: control TOC formatting
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{xspace}
+% Optional: Use a special font for the title
+\usepackage{tgchorus} % Elegant script-style font
+\usepackage{cmbright}
+\usepackage{hyperref}
+\hypersetup{pdfborder=0 0 0}
+\usepackage{xparse}
+\usepackage{calc}
+\usepackage{shadowtext}
+\usepackage{tcolorbox}
+\usepackage{indentfirst}
+\usepackage{tikz}
+\usetikzlibrary{shadows.blur}
+\usepackage[utf8]{inputenc}
+
+
+% Column spacing
+\setlength{\columnsep}{20pt}
+
+% Define dark blue color
+\definecolor{darkblue}{RGB}{0, 51, 102}
+
+% Section styling
+\titleformat{\section}
+  {\bfseries\Large\color{darkblue}}
+  {\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{36pt}{24pt}
+
+\titleformat{\subsection}
+  {\bfseries\large\color{darkblue}}
+  {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{24pt}{18pt}
+
+% Line spacing
+% \renewcommand{\baselinestretch}{1.5}
+
+\definecolor{marineblue}{RGB}{0, 51, 102}
+
+
+\newcommand{\setTitleBackground}[2]{%
+  \backgroundsetup{
+    scale=1,
+    angle=0,
+    opacity=#2,
+    contents={\includegraphics[width=\paperwidth,height=\paperheight]{#1}}
+  }%
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Stocker le titre du chapitre
+\newcommand{\chaptertitle}{}
+
+% Style pour la 2e page du chapitre
+\fancypagestyle{chapterstyle}{
+  \fancyhf{}
+  \fancyhead[L]{\thechapter.\ \chaptertitle} % numéro + titre
+  \fancyhead[R]{\thepage}                    % numéro de page
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% Style normal pour le reste du document
+\fancypagestyle{normalstyle}{
+  \fancyhf{}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+
+\NewDocumentCommand{\NgelmakProjectNewChapter}{m o o}{%
+  % Images optionnelles
+  \IfNoValueTF{#2}{\def\second{images/marios_gkortsilas_jceqhptpu24_unsplash.jpg}}{\def\second{#2}}%
+  \IfNoValueTF{#3}{\def\third{images/georgie_cobbs_muohbrfgeqy_unsplash.jpg}}{\def\third{#3}}%
+
+  % Passage en une colonne
+  \clearpage
+  \onecolumn
+
+  % Numérotation + TOC
+  \refstepcounter{chapter}
+  \addcontentsline{toc}{chapter}{#1}
+
+  % Stocker le titre pour l'en-tête
+  \renewcommand{\chaptertitle}{#1}
+
+  % --- PAGE 1 DU CHAPITRE ---
+  \thispagestyle{empty}
+  \setTitleBackground{\second}{1.0}
+
+  \vspace*{\fill}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[
+        draw=none,
+        fill=white,
+        fill opacity=0.5,
+        text opacity=1,
+        anchor=west,
+        inner sep=2cm,
+        minimum width=\textwidth
+      ] at (0,0) {
+        \begin{minipage}{\textwidth}
+          \raggedright
+          \setstretch{1.4}
+          {\fontsize{28}{34}\selectfont\bfseries\color{black} #1}
+        \end{minipage}
+      };
+    \end{tikzpicture}
+  \end{center}
+  \vspace*{\fill}
+
+  % --- PAGE 2 DU CHAPITRE ---
+  \clearpage
+  \thispagestyle{chapterstyle}
+  \setTitleBackground{\third}{0.1}
+
+  % Retour au mode deux colonnes
+  \clearpage
+  \twocolumn
+
+  % --- IMPORTANT : appliquer le style de chapitre à toutes les pages suivantes ---
+  \pagestyle{chapterstyle}
+}
+
+
+\newcommand{\ngelmak}{\textsc{Ngelmak}\xspace}
+
+
+
+\begin{document}
+\pagestyle{normalstyle}
+
+\setTitleBackground{images/kasra_askari_5v9rtr8qp8_unsplash.jpg}{1.0}
+
+\vspace*{3cm}
+
+% Title — centered across full width
+\noindent
+\begin{minipage}{\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \node[
+      rounded corners=3mm,
+      fill=black,
+      fill opacity=0.8,
+      text opacity=1,
+      text=white,
+      align=center,
+      anchor=center,   % <<< THIS keeps the box centered
+      inner xsep=40pt, % horizontal padding
+      inner ysep=15pt, % vertical padding
+    ] {
+      \fontsize{48pt}{64pt}\selectfont\bfseries Projet Ngelmak
+    };
+  \end{tikzpicture}
+\end{minipage}
+
+\vspace{0.5cm}
+
+% Subtitle — new line, aligned right
+\begin{minipage}{\textwidth}
+  \raggedleft
+  \begin{tikzpicture}
+    \node[
+      rounded corners=6pt,
+      fill=black,
+      fill opacity=0.8,
+      text opacity=1,
+      text=white,            % <<< CHANGE TEXT COLOR HERE
+      inner sep=5pt
+    ] {\large\textbf{Soutenir l'autonomie grâce au partage et à l'entraide}};
+  \end{tikzpicture}
+\end{minipage}
+
+\vspace*{\fill}
+
+\noindent
+\makebox[\textwidth]{%
+	\begin{minipage}[b]{0.6\textwidth}
+		\raggedright
+		{\large\color{white} Youssouph Faye \quad} \\
+		{\normalsize\color{white} October 16, 2025}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.4\textwidth}
+		\raggedleft
+		\includegraphics[width=2.5cm]{images/Ngelmak-Project/ngelmak-logo-light.pdf}
+	\end{minipage}%
+}
+
+\clearpage
+\newpage
+
+% \vspace*{3cm}
+\onecolumn
+\setTitleBackground{images/georgie_cobbs_muohbrfgeqy_unsplash.jpg}{0.1}
+\chapter*{Résumé}
+\Large L'Afrique évolue dans un paysage informationnel dominé par des plateformes étrangères qui imposent leurs récits, filtrent nos voix et façonnent la perception de nos réalités, au point que la désinformation et la propagande anti-africaine sont devenues quotidiennes. Cette dépendance, aggravée par l'absence d'alternatives souveraines proposées par nos dirigeants ou nos institutions, prive les Africains d'un espace où communiquer librement, documenter leurs expériences et construire leur propre narratif. Face à ce vide stratégique, la création d'un réseau africain autonome apparaît comme une nécessité vitale pour reprendre la parole, protéger notre mémoire collective et affirmer notre souveraineté. Le projet \ngelmak s'inscrit dans cette dynamique : bâtir un outil modeste au départ, mais évolutif, crédible et durable, qui permette enfin aux Africains de s'exprimer, d'analyser et de débattre sans dépendre de structures hostiles à leurs intérêts.
+
+
+\clearpage
+\backgroundsetup{contents={},opacity=0} % no content, invisible
+\tableofcontents
+\clearpage
+
+
+\include{chapters/ngelmak_overview}
+
+\include{chapters/truthline}
+
+\include{chapters/mobility_carpooling}
+
+\include{chapters/upcoming_conclusion}
+
+% \include{chapters/trading}
+
+% \include{chapters/culture_book_sharing}
+
+% \include{chapters/trading}
+
+
+\end{document}
